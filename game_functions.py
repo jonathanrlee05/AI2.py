@@ -70,6 +70,8 @@ def update_screen(settings, screen, ship, bullets, aliens):
 
     aliens.update()
 
+    # update_fleet(aliens)
+
     # update the display
     pygame.display.flip()
 
@@ -108,7 +110,14 @@ def create_fleet(settings, screen, aliens, ship):
             create_alien(settings, screen, aliens, alien_number, row_number)
 
 
-# def update_fleet():
+
+"""def update_fleet(Aliens):
+    if Aliens.check_wall() == True:
+        for row_number in range(get_number_of_aliens):
+            Aliens.rect.y += 30"""
 
 def check_collision(bullets, aliens):
     pygame.sprite.groupcollide(bullets, aliens, True, True)
+
+def check_ship_collision(ship, aliens):
+    pygame.sprite.groupcollide(ship, aliens, True, True)

@@ -2,7 +2,7 @@
 # import pygame and system features
 import pygame
 from settings1 import Settings
-from ship1 import Ship
+from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
 
@@ -35,6 +35,7 @@ def alien_invasion():
         # updates the screen from game_functions
         gf.update_screen(settings, screen, ship, bullets, aliens)
         gf.check_collision(bullets, aliens)
+        gf.check_ship_collision(ship, aliens)
 
 
 alien_invasion()

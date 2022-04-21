@@ -72,6 +72,8 @@ def update_screen(settings, screen, ship, bullets, aliens):
 
     # update_fleet(aliens)
 
+    print_text(settings, screen)
+
     # update the display
     pygame.display.flip()
 
@@ -116,8 +118,23 @@ def create_fleet(settings, screen, aliens, ship):
         for row_number in range(get_number_of_aliens):
             Aliens.rect.y += 30"""
 
-def check_collision(bullets, aliens):
-    pygame.sprite.groupcollide(bullets, aliens, True, True)
 
-def check_ship_collision(ship, aliens):
-    pygame.sprite.groupcollide(ship, aliens, True, True)
+def check_collision(bullets, aliens, settings):
+    alien_collision = pygame.sprite.groupcollide(bullets, aliens, True, True)
+    if alien_collision:
+        settings.points += 1
+
+
+def print_text(settings, screen):
+    font = pygame.font.SysFont("Times New Roman", 30, True, False)
+    surface = font.render("Score: " + str(0 + settings.points), True, (255, 255, 255))
+    screen.blit(surface, (430, 20))
+
+
+def end_game(aliens, settings):
+    for alien in aliens:
+        if alien.rect.y == 570:
+            print(settings.points)
+            sys.exit()
+
+

@@ -1,4 +1,5 @@
 import pygame
+import sys
 from pygame.sprite import Sprite
 
 
@@ -18,7 +19,7 @@ class Alien(Sprite):
         self.rect = self.image.get_rect()
 
         # set starting location
-        self.rect.x =self.rect.width
+        self.rect.x = self.rect.width
         self.rect.y = self.rect.height
 
         self.x = float(self.rect.x)
@@ -55,3 +56,5 @@ class Alien(Sprite):
             return True
         else:
             return False
+
+

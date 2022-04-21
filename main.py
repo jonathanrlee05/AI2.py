@@ -5,6 +5,7 @@ from settings1 import Settings
 from ship import Ship
 import game_functions as gf
 from pygame.sprite import Group
+from aliens import Alien
 
 
 # define main game function
@@ -34,8 +35,8 @@ def alien_invasion():
         gf.check_events(settings, screen, ship, bullets)
         # updates the screen from game_functions
         gf.update_screen(settings, screen, ship, bullets, aliens)
-        gf.check_collision(bullets, aliens)
-        gf.check_ship_collision(ship, aliens)
+        gf.check_collision(bullets, aliens, settings)
+        gf.end_game(aliens, settings)
 
 
 alien_invasion()

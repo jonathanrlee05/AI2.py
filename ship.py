@@ -46,13 +46,13 @@ class Ship():
     def update(self):
         """ updates image of ship left/right"""
         if self.moving_right and self.rect.right < self.screen_rect.right:
-            self.centerx += 0.5
+            self.centerx += 2
         elif self.moving_left and self.rect.left > 0:
-            self.centerx -= 0.5
+            self.centerx -= 2
         if self.moving_up and self.rect.top > 0:
-            self.centery -= 0.5
+            self.centery -= 2
         elif self.moving_down and self.rect.bottom < self.screen_rect.bottom:
-            self.centery += 0.5
+            self.centery += 2
 
 
         # update rect from self.center

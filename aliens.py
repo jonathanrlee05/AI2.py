@@ -24,7 +24,7 @@ class Alien(Sprite):
 
         self.x = float(self.rect.x)
 
-        self.speed = 1
+        self.speed = 10
         self.direction = 1
 
         # spacing for the fleet

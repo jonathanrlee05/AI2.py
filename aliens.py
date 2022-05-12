@@ -24,7 +24,7 @@ class Alien(Sprite):
 
         self.x = float(self.rect.x)
 
-        self.speed = 10
+        # self.speed = 10
         self.direction = 1
 
         # spacing for the fleet
@@ -40,7 +40,7 @@ class Alien(Sprite):
 
     def update(self):
         # moves alien
-        self.x += self.speed * self.direction
+        self.x += self.settings.alien_speed * self.direction
         self.rect.x = self.x
         if self.check_wall() == True:
             self.direction = (self.direction * -1)

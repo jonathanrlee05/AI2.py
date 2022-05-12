@@ -4,6 +4,8 @@ from bullets1 import Bullets
 from aliens import Alien
 
 
+
+
 def check_events(settings, screen, ship, bullets, play_button):
     """ checks for key/mouse events and responds"""
     # loop to check keypress events
@@ -34,7 +36,7 @@ def keydown_event(event, settings, screen, ship, bullets):
         ship.rotate_counterclockwise = True
     if event.key == pygame.K_e:
         ship.rotate_clockwise = True
-    if event.key == pygame.K_SPACE:
+    if event.key == pygame.K_SPACE and len(bullets) < settings.max_bullet:
         new_bullet = Bullets(settings, screen, ship)
         bullets.add(new_bullet)
 
@@ -84,6 +86,12 @@ def update_screen(settings, screen, ship, bullets, aliens, play_button):
 
         print_text(settings, screen)
 
+        if len(aliens) == 0:
+            create_fleet(settings, screen, aliens, ship)
+            settings.alien_speed += 2
+            if len(bullets) in range(settings.min_bullet,settings.max_bullet):
+                settings.max_bullet -= 1
+
     # update the display
     pygame.display.flip()
 
@@ -122,7 +130,6 @@ def create_fleet(settings, screen, aliens, ship):
             create_alien(settings, screen, aliens, alien_number, row_number)
 
 
-
 """def update_fleet(Aliens):
     if Aliens.check_wall() == True:
         for row_number in range(get_number_of_aliens):
@@ -150,5 +157,3 @@ def end_game(aliens, settings):
         if alien.rect.y == 570:
             print(settings.points)
             sys.exit()
-
-

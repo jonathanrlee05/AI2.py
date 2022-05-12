@@ -16,6 +16,9 @@ class Settings():
         self.bullet_height = 15
         self.bullet_color = (255, 0, 0)
 
+        self.max_bullet = 5
+        self.min_bullet = 1
+
         # player settings
         self.lives = 3
         self.score = 0
@@ -25,3 +28,6 @@ class Settings():
 
         # play game
         self.game_active = False
+
+        # alien settings
+        self.alien_speed = 10
